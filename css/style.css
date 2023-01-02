@@ -1,0 +1,170 @@
+body, html{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+hr{
+    border: none;
+    border-bottom: .1px solid rgba(255, 255, 255, .4)
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app{
+    height: 70vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    background-image: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80');
+    background-size: cover;
+    background-position: top;
+    box-shadow: 2px 2px 16px 2px rgba(0, 0, 0, .2);
+    color: white;
+}
+
+
+h1{
+    font-weight: lighter;
+    margin: 0;
+}
+
+.weather-h1{
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-right: -10px;
+}
+
+.right, .left{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-left, .bottom-left{
+    padding: 2rem 3rem;
+}
+
+.right{
+    width: 70%;
+    justify-content: space-between;
+}
+
+.left{
+    width: 30%;
+    backdrop-filter: blur(20px);
+    font-size: .9rem;
+}
+
+.left-p{
+    padding: 40px;
+}
+
+.m-10{
+    margin-top: 2rem;
+}
+
+.title-separator{
+    margin-bottom: 2rem ;
+}
+
+.bottom-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 28vh;
+}
+
+.location-info{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.location-info p{
+    margin-top: -1rem;
+    margin-left: .2rem;
+    font-size: .8rem;
+}
+.bottom-info, .top-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.city-info{
+    font-weight: 400;
+}
+
+.status-t{
+    font-size: .9rem;
+}
+
+.cities ul{
+    list-style-type: none;
+    color: rgba(255, 255, 255, .4)
+}
+
+.cities p{
+    color: rgba(255, 255, 255, .4)
+}
+
+.cities ul li{
+    padding-left: 0; text-indent: -2.5rem;
+    margin-bottom: 20px;
+}
+
+.logo-top{
+    font-weight: 500;
+    font-size: .8rem;
+}
+
+.weather-details{
+    margin-top: 5vh;
+}
+
+.w-detail{
+    padding-top: 20px;
+    display: flex;
+    margin-bottom: .1rem;
+    color:rgba(255, 255, 255, .4);
+}
+
+.left-d{
+    text-align: left;
+}
+
+.left{
+    overflow-y:scroll;
+}
+
+.left::-webkit-scrollbar{
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.left::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.right-d{
+    text-align: right;
+    margin-left: auto;
+}
+@media screen and (max-height: 620px){
+    .app{
+        height: 50vh;
+    }
+}
