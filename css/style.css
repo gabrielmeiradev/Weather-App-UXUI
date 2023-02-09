@@ -78,10 +78,6 @@ h1{
     margin-top: 2rem;
 }
 
-.title-separator{
-    margin-bottom: 2rem ;
-}
-
 .bottom-left{
     display: flex;
     flex-direction: row;
@@ -115,7 +111,10 @@ h1{
 
 .cities ul{
     list-style-type: none;
-    color: rgba(255, 255, 255, .4)
+    color: rgba(255, 255, 255, .4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .cities p{
@@ -123,8 +122,7 @@ h1{
 }
 
 .cities ul li{
-    padding-left: 0; text-indent: -2.5rem;
-    margin-bottom: 20px;
+    margin-left: -2.5rem;
 }
 
 .logo-top{
@@ -163,8 +161,26 @@ h1{
     text-align: right;
     margin-left: auto;
 }
-@media screen and (max-height: 620px){
+
+@media screen and (max-width: 620px){
     .app{
-        height: 50vh;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+    .left, .right{
+        width: 100%;
+    }
+
+    .bottom-left{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+
+    .location-info{
+        margin: 0;
     }
 }

@@ -6,9 +6,8 @@
     <title>Weather App by Gabriel Meira</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <script src='js/main.js'></script>
 </head>
-<body onload="appLoad()">
+<body>
     <main>
         <div class="app">
         <div class="right">
@@ -26,7 +25,6 @@
                         <p id="daynow">9</p> 
                         <p id="timeseparator"> ,</p>
                         <p id="month">Sep</p> 
-                        <p id="month-n">9</p>
                     </div>
                 </div>
                 <div class="weather-status">
@@ -39,26 +37,14 @@
         </div>
         <div class="left">
             <div class="left-p">
-            <div class="cities">
-                <div class="title-separator">
-                <p>Another locations</p>
-                <hr />
-            </div>
-                <ul>
-                    <li>Birmingham</li>
-                    <li>Manchester</li>
-                    <li>New York</li>
-                    <li>California</li>
-                </ul>
-            </div>
-            <hr class="m-10" />
             <div class="weather-details">
-                <p>Weather details</p>
+                <h3>Weather details</h3>
+                <hr>
                 <div class="w-detail">
                     <div class="left-d" id="status-r">Cloudy</div>
                     <div class="right-d" id="num-r">86%</div>
                 </div>
-
+                
                 <div class="w-detail">
                     <div class="left-d" id="status-h">Humidity</div>
                     <div class="right-d" id="num-h">62%</div>
@@ -68,10 +54,24 @@
                     <div class="left-d" id="status-w">Wind</div>
                     <div class="right-d" id="num-w">8km/h</div>
                 </div>
+            </div>    
+            <br />
+            <div class="cities">
+            <h3 style="color: #FFFFFF">Another locations</h3>
+            <hr>
+            <ul>
+                    <li>Birmingham</li>
+                    <li>Manchester</li>
+                    <li>New York</li>
+                    <li>California</li>
+                </ul>
             </div>
-        </div>
+            
         </div>
     </div>
-    </main>
+    </div>
+    <script src='js/time.js'></script>
+    <script src='js/api.js'></script>
+</main>
 </body>
 </html>
