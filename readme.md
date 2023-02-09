@@ -1,4 +1,4 @@
-# DOM ELEMNTS CONSTS
+# DOM ELEMENTS CONSTS
 ## LEFT AREA (CLASSNAMES)
     # weather-h1
     # city-info
