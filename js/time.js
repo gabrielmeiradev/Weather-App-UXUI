@@ -4,7 +4,8 @@ const cityinfoElement = document.querySelector('#city-info'),
       daynowElement = document.querySelector('#daynow'),
       monthElement = document.querySelector('#month'),
       statustElement = document.querySelector('#status-t'),
-      monthnumElement = document.querySelector('#month-h')
+      monthnumElement = document.querySelector('#month-h'),
+      locationsButton = document.querySelectorAll('.locations-btn')
       week = {
         0: 'Sunday',
         1: 'Monday',
@@ -14,9 +15,16 @@ const cityinfoElement = document.querySelector('#city-info'),
         5: 'Friday',
         6: 'Saturday'
       }
-      
+
+locationsButton.forEach(item => {
+  item.addEventListener('click', handleClickTime)
+})
 
 
+function handleClickTime(event) {
+    const location = event.currentTarget.dataset.location;
+    setTime(locationsTime[location]) 
+}
 
 
 function formatTime(i) {
@@ -25,6 +33,16 @@ function formatTime(i) {
     }
     return i;
 }
+
+const locationsTime = {
+  'São Paulo': 'America/Sao_Paulo',
+  'Birmingham': 'Europe/London',
+  'Manchester': 'Europe/London',
+  'New York': 'America/New_York',
+  'California': 'America/Los_Angeles'
+}
+
+
 
 function setTime(GMT) {
   const fusoHorario = GMT;
@@ -61,5 +79,5 @@ function setDate() {
 
 }
 
-setTime('America/Sao_Paulo');
+setTime(locationsTime['São Paulo']);
 setDate();

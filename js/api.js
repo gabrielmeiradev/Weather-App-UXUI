@@ -5,7 +5,18 @@ const weatherh1 = document.querySelector('.weather-h1'),
       statushElement = document.querySelector('#status-h'),
       numwElement = document.querySelector('#num-w'),
       statuswElement = document.querySelector('#status-w'),
-      cityInfo = document.querySelector('.city-info')
+      cityInfo = document.querySelector('.city-info'),
+      locationButtons = document.querySelectorAll('.locations-btn')
+
+locationButtons.forEach(item => {
+    item.addEventListener('click', handleLocationClick);
+});
+
+function handleLocationClick(event){
+    const location = event.target.dataset.location;
+    const url = locations[location];
+    setStats(url, location)
+}
 
 async function getAPI(url){
     const response = await fetch(url)
@@ -100,6 +111,14 @@ function weatherCodeDict(code){
     }
 }
 
+const locations = {
+    'São Paulo': 'https://api.open-meteo.com/v1/forecast?latitude=-23.54&longitude=-46.63&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode',
+    'Birmingham': 'https://api.open-meteo.com/v1/forecast?latitude=52.48&longitude=-1.89&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode',
+    'Manchester': 'https://api.open-meteo.com/v1/forecast?latitude=53.48&longitude=-1.23&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode',
+    'New York': 'https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.00&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode',
+    'California': 'https://api.open-meteo.com/v1/forecast?latitude=38.62&longitude=-92.56&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode'
+}
+
 function setStats(url, city) {
     getAPI(url)
     .then((data) => {
@@ -129,5 +148,5 @@ function setStats(url, city) {
 }
 
 window.onload = () => {
-    setStats('https://api.open-meteo.com/v1/forecast?latitude=-23.54&longitude=-46.63&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'São Paulo')
+    setStats(locations['São Paulo'], 'São Paulo')
 }
