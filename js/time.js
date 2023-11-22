@@ -4,7 +4,8 @@ const cityinfoElement = document.querySelector('#city-info'),
       daynowElement = document.querySelector('#daynow'),
       monthElement = document.querySelector('#month'),
       statustElement = document.querySelector('#status-t'),
-      monthnumElement = document.querySelector('#month-h')
+      monthnumElement = document.querySelector('#month-h'),
+      locationsButton = document.querySelectorAll('.locations-btn')
       week = {
         0: 'Sunday',
         1: 'Monday',
@@ -14,9 +15,16 @@ const cityinfoElement = document.querySelector('#city-info'),
         5: 'Friday',
         6: 'Saturday'
       }
-      
+
+locationsButton.forEach(item => {
+  item.addEventListener('click', handleClickTime)
+})
 
 
+function handleClickTime(event) {
+    const location = event.currentTarget.dataset.location;
+    setTime(locationsTime[location]) 
+}
 
 
 function formatTime(i) {
@@ -26,21 +34,36 @@ function formatTime(i) {
     return i;
 }
 
-function setTime() {
+const locationsTime = {
+  'São Paulo': 'America/Sao_Paulo',
+  'Birmingham': 'Europe/London',
+  'Manchester': 'Europe/London',
+  'New York': 'America/New_York',
+  'California': 'America/Los_Angeles'
+}
 
-    let today = new Date();
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
 
-    // add a zero in front of numbers<10
-    m = formatTime(m);
-    s = formatTime(s);
-    t = setTimeout(() => {
-        setTime()
-    }, 500);
-    document.getElementById('timenow').innerHTML = h + ":" + m;
 
+function setTime(GMT) {
+  const fusoHorario = GMT;
+
+  // Obter a data e hora atuais no fuso horário recebido
+  const today = new Date().toLocaleString('en-US', { timeZone: fusoHorario });
+  const formattedTime = formatTime(today);
+
+  document.getElementById('timenow').innerHTML = formattedTime;
+  
+  function formatTime(dateString) {
+    const date = new Date(dateString);
+    let h = date.getHours();
+    let m = date.getMinutes();
+  
+    // Adicionar um zero na frente de números < 10
+    h = (h < 10) ? `0${h}` : h;
+    m = (m < 10) ? `0${m}` : m;
+  
+    return `${h}:${m}`;
+  }
 }
 
 function setDate() {
@@ -55,5 +78,6 @@ function setDate() {
     daynowElement.textContent = day
 
 }
-setTime();
+
+setTime(locationsTime['São Paulo']);
 setDate();
