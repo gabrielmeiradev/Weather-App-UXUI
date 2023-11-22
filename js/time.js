@@ -26,21 +26,26 @@ function formatTime(i) {
     return i;
 }
 
-function setTime() {
+function setTime(GMT) {
+  const fusoHorario = GMT;
 
-    let today = new Date();
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
+  // Obter a data e hora atuais no fuso horário recebido
+  const today = new Date().toLocaleString('en-US', { timeZone: fusoHorario });
+  const formattedTime = formatTime(today);
 
-    // add a zero in front of numbers<10
-    m = formatTime(m);
-    s = formatTime(s);
-    t = setTimeout(() => {
-        setTime()
-    }, 500);
-    document.getElementById('timenow').innerHTML = h + ":" + m;
-
+  document.getElementById('timenow').innerHTML = formattedTime;
+  
+  function formatTime(dateString) {
+    const date = new Date(dateString);
+    let h = date.getHours();
+    let m = date.getMinutes();
+  
+    // Adicionar um zero na frente de números < 10
+    h = (h < 10) ? `0${h}` : h;
+    m = (m < 10) ? `0${m}` : m;
+  
+    return `${h}:${m}`;
+  }
 }
 
 function setDate() {
@@ -55,5 +60,6 @@ function setDate() {
     daynowElement.textContent = day
 
 }
-setTime();
+
+setTime('America/Sao_Paulo');
 setDate();

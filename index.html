@@ -15,16 +15,16 @@
                 <p id="logo-top">the.weather</p>
             </div>
             <div class="bottom-left">
-                <div class="weather"><h1 class="weather-h1">16º</h1></div>
+                <div class="weather"><h1 class="weather-h1"></h1></div>
                 <div class="location-info">
                     <div class="top-info"><h2 class="city-info">São Paulo</h2></div>
                     <div class="bottom-info">
                         <p id="timenow"></p>
                         <p id="timeseparator"> - </p>
-                        <p id="dayspnow">Monday</p> 
-                        <p id="daynow">9</p> 
+                        <p id="dayspnow"></p> 
+                        <p id="daynow"></p> 
                         <p id="timeseparator"> ,</p>
-                        <p id="month">Sep</p> 
+                        <p id="month"></p> 
                     </div>
                 </div>
                 <div class="weather-status">
@@ -60,10 +60,10 @@
             <h3 style="color: #FFFFFF">Another locations</h3>
             <hr>
             <ul>
-                    <li>Birmingham</li>
-                    <li>Manchester</li>
-                    <li>New York</li>
-                    <li>California</li>
+                    <li class="locations-btn" onclick="setStats('https://api.open-meteo.com/v1/forecast?latitude=52.48&longitude=-1.89&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'Birmingham'), setTime('Europe/London')">Birmingham</li>
+                    <li class="locations-btn" onclick="setStats('https://api.open-meteo.com/v1/forecast?latitude=53.48&longitude=-1.23&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'Manchester'), setTime('Europe/London')">Manchester</li>
+                    <li class="locations-btn" onclick="setStats('https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.00&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'New York'), setTime('America/New_York')">New York</li>
+                    <li class="locations-btn" onclick="setStats('https://api.open-meteo.com/v1/forecast?latitude=38.62&longitude=-92.56&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'California'), setTime('America/Los_Angeles')">California</li>
                 </ul>
             </div>
             

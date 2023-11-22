@@ -4,7 +4,8 @@ const weatherh1 = document.querySelector('.weather-h1'),
       numhElement = document.querySelector('#num-h'),
       statushElement = document.querySelector('#status-h'),
       numwElement = document.querySelector('#num-w'),
-      statuswElement = document.querySelector('#status-w')
+      statuswElement = document.querySelector('#status-w'),
+      cityInfo = document.querySelector('.city-info')
 
 async function getAPI(url){
     const response = await fetch(url)
@@ -99,8 +100,8 @@ function weatherCodeDict(code){
     }
 }
 
-function setStats() {
-    getAPI('https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.64&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode')
+function setStats(url, city) {
+    getAPI(url)
     .then((data) => {
         let temperature_unit = data.hourly_units.temperature_2m
         let cloudcover_unit = data.hourly_units.cloudcover
@@ -119,6 +120,7 @@ function setStats() {
         numrElement.textContent = cloudcover
         numhElement.textContent = humidity
         numwElement.textContent = wind
+        cityInfo.textContent = city
 
 
         weatherh1.textContent = temperature
@@ -127,5 +129,5 @@ function setStats() {
 }
 
 window.onload = () => {
-    setStats()
+    setStats('https://api.open-meteo.com/v1/forecast?latitude=-23.54&longitude=-46.63&hourly=temperature_2m,relativehumidity_2m,cloudcover,windspeed_10m,weathercode', 'São Paulo')
 }
